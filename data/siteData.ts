@@ -1,5 +1,5 @@
 const siteData = {
-  title: 'Blog - Sopiriye Jamabo',
+  title: 'Blog - Sopiriye Jamabo( Front-end Developer)',
   author: 'Sopiriye Jamabo',
   headerTitle: 'Sopiriye Jamabo Blog',
   profileUrl: 'https://avatars.githubusercontent.com/u/20936241?v=4',

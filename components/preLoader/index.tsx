@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { opacity, slideUp } from './anim';
 import styles from './style.module.scss';
 
-const words: string[] = ["React Js", "JamStack", "HeadLess CMS", "Javascript", "やあ", "Angular", "Tailwind", "Next Js"];
+const words: string[] = ["React Js", "JamStack", "HeadLess CMS", "Javascript", "Angular js", "Tailwind", "Next Js"];
 
 interface Dimension {
   width: number;

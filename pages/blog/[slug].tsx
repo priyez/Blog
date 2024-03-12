@@ -12,13 +12,8 @@ import siteData from 'data/siteData';
 import UseAnimations from 'react-useanimations';
 import github from 'react-useanimations/lib/github';
 import { useRouter } from 'next/router';
-// import linkedin from 'react-useanimations/lib/linkedin';
 import Subscribe from 'components/Subscribe';
-import { FacebookShare } from 'react-share-kit';
-import { WhatsappShare } from 'react-share-kit';
-import { TwitterShare } from 'react-share-kit'
-import { EmailShare } from 'react-share-kit'
-
+import toast from 'react-hot-toast';
 
 
 const socials = [
@@ -91,13 +86,14 @@ const ArticlePage = ({
     if (input) {
       input.select(); //select input value
       if (document.execCommand('copy')) {
-        //if the selected text is copied
+     
         const field = document.querySelector('.field') as HTMLElement;
         const copy = document.querySelector('.field button') as HTMLElement;
 
         field.classList.add('active');
         if (copy) {
           copy.innerText = 'Copied';
+           toast.success('Link Sucessfully Copied');
         }
         setTimeout(() => {
           window.getSelection()?.removeAllRanges(); //remove selection from page
@@ -182,48 +178,19 @@ const ArticlePage = ({
 
 {isOpen && (
   <div className="popup fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white bg-neutral-800   p-8 rounded-lg shadow-lg transition-all duration-200 opacity-100">
-    <header className="flex items-center justify-between pb-4 border-b border-gray-300">
+    <header className=
+    "flex items-center justify-between pb-4 border-b border-gray-300">
       <span className="text-xl font-semibold">Share  Now!</span>
       <div
-        className="close flex text-[65px] items-center justify-center w-10 h-10 rounded-full cursor-pointer hover:bg-gray-200 hover:text-black text-white transition-colors duration-300"
+        className="close flex md:text-[35px] text-[25px] items-center justify-center w-10 h-10 rounded-full cursor-pointer hover:bg-gray-200 hover:text-black text-white transition-colors duration-300"
         onClick={toggleModal}
       >
         &times;
       </div>
     </header>
     <div className="content mt-5">
-      <p>Share this link via</p>
-      <ul className="icons flex space-x-3 mt-2">
-        <li className="md:px-[25px]">
-          <span
-            className="flex  items-center justify-center w-12 h-12 rounded-full border border-transparent hover:bg-blue-500 transition-colors duration-300"
-          >
-           <FacebookShare size={35} round={true} url={currentUrl} quote={title} />
-          </span>
-        </li>
-        <li className="md:px-[25px]">
-          <span
-            className="flex items-center justify-center w-12 h-12 rounded-full border border-transparent hover:bg-blue-500 transition-colors duration-300"
-          >
-           <WhatsappShare size={35} round={true} url={currentUrl} title={title} />
-          </span>
-        </li>
-        <li className="md:px-[25px]">
-          <span
-            className="flex items-center justify-center w-12 h-12 rounded-full border border-transparent hover:bg-blue-500 transition-colors duration-300"
-          >
-           <TwitterShare size={35} round={true} url={currentUrl} title={title} />
-          </span>
-        </li>
-        <li className="md:px-[25px]">
-          <span
-            className="flex items-center justify-center w-12 h-12 rounded-full border border-transparent hover:bg-blue-500 transition-colors duration-300"
-          >
-           <EmailShare size={35} round={true} url={currentUrl}  subject={title} body="body" />
-          </span>
-        </li>
-      </ul>
-      <p className="mt-4">Or copy link</p>
+     
+      <p className="mt-4"> Copy link & Share</p>
       <div className="field mt-2 flex items-center border border-gray-300 rounded-[1rem] px-2">
         <i className="url-icon uil uil-link text-xl "></i>
         <input
